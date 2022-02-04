@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  ubuntumate:
+    image: linuxserver/webtop:ubuntu-mate
+    container_name: ubuntumate
+    privileged: true #optional
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - SUBFOLDER=/ #optional
+    ports:
+      - 3000:3000
+    shm_size: "1gb" #optional
+    restart: unless-stopped
